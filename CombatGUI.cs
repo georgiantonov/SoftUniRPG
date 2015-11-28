@@ -34,7 +34,7 @@ namespace Game
         public void StartCombat(PlayerParty playerParty, CombatPartyMember enemy)
         {
             enemyMember = enemy;
-            playerPartyMembers.Add(playerParty.member1);
+            playerPartyMembers.Add(playerParty.Member1);
             inCombat = true;
 
            // PartyPB1.Image = playerPartyMembers[0].img;
@@ -62,7 +62,7 @@ namespace Game
             for (int x = 0; x < activeSkills.Count; x++)
             {
                 var a = activeSkills[x];
-                a.target.health -= a.skill.damagePerTurn;
+                a.target.Health -= a.skill.damagePerTurn;
                 a.remainingTurns--;
 
                 //OutputConsoleInfo(a.skill.name + ": " + a.skill.name + " hit for " + a.skill.damagePerTurn + " damage!");
@@ -126,7 +126,7 @@ namespace Game
                 }
 
                 // Exit battle if enemies are dead
-                if (enemyMember.health <= 0)
+                if (enemyMember.Health <= 0)
                 {
                     //OutputConsoleInfo("\nEnemies defeated.");
                     inCombat = false;
@@ -141,7 +141,7 @@ namespace Game
             int x = rand.Next(0, playerPartyMembers.Count);
 
             //Damage player
-            playerPartyMembers[x].health -= enemyMember.attackPower;
+            playerPartyMembers[x].Health -= enemyMember.AttackPower;
             //OutputConsoleInfo("Player was hit for " + enemyMember.attackPower + " damage!");
 
             //Check if all players are still alive
@@ -149,7 +149,7 @@ namespace Game
 
             foreach (CombatPartyMember c in playerPartyMembers)
             {
-                if (c.health >= 0)
+                if (c.Health >= 0)
                 {
                     inCombat = true;
                 }

@@ -11,12 +11,38 @@ namespace Game
     public class PlayerParty
     {    
         // public because we need to access it from outside the class
-        public WorldMapSprite playerSprite;
-        public CombatPartyMember member1;
-
+        private WorldMapSprite playerSprite;
+        private CombatPartyMember member1;
+        
         public PlayerParty(Point location, Image image, int ID)
         {
-            this.playerSprite = new WorldMapSprite(location, image, ID);
+            this.PlayerSprite = new WorldMapSprite(location, image, ID);
+        }
+
+        public WorldMapSprite PlayerSprite
+        {
+            get
+            {
+                return this.playerSprite;
+            }
+
+            set
+            {
+                this.playerSprite = value;
+            }
+        }
+
+        public CombatPartyMember Member1
+        {
+            get
+            {
+                return this.member1;
+            }
+
+            set
+            {
+                this.member1 = value;
+            }
         }
     }
 }

@@ -10,9 +10,9 @@ namespace Game
 {
     public class WorldMapSprite
     {
-        public Point location;
-        public Image image;
-        public int ID;
+        private Point location;
+        private Image image;
+        private int ID;
 
         public WorldMapSprite(Point location, Image image, int ID)
         {

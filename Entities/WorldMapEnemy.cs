@@ -10,9 +10,9 @@ namespace Game
     // Enemies are a type of Sprites which can appear on the map - hence they inherit "WorldMapSprite"
     class WorldMapEnemy : WorldMapSprite
     {
-        public bool isStatic;
-        public bool alive;
-        public CombatPartyMember member;
+        private bool isStatic;
+        private bool alive;
+        private CombatPartyMember member;
 
         public WorldMapEnemy(Point location, Image image, int ID, CombatPartyMember member) : base(location, image, ID)
         {

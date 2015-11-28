@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Game.GameObjects.Inventory
 {
-    class InventoryManager
+    public class InventoryManager
     {
     }
 }

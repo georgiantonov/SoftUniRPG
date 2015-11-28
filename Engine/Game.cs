@@ -10,7 +10,7 @@ using System.IO;
 
 namespace Game
 {
-    class Game
+    public class Game
     {
         Form gameForm; // The window
         //CombatGUI combatGUI; // A separate window that appears when in combat
@@ -140,13 +140,13 @@ namespace Game
                 // Toggling the grid
                 if (e.KeyCode == Keys.G)
                 {
-                    if (worldMap.gridIsDrawn == true)
+                    if (worldMap.GridIsDrawn == true)
                     {
-                        worldMap.gridIsDrawn = false;
+                        worldMap.GridIsDrawn = false;
                     }
                     else
                     {
-                        worldMap.gridIsDrawn = true;
+                        worldMap.GridIsDrawn = true;
                     }
                 }    
 
@@ -154,8 +154,8 @@ namespace Game
                 if (viewportPosX > 0)   { viewportPosX = 0; }
                 if (viewportPosY > 0)   { viewportPosY = 0; }
                 // Disable moving the camera or the player off the right edge of the map and off the bottom of the map
-                if (viewportPosX < -(worldMap.mapImageWidth - gameForm.Width)) { viewportPosX = -(worldMap.mapImageWidth - gameForm.Width); }
-                if (viewportPosY < -(worldMap.mapImageHeight - gameForm.Height)) { viewportPosY = -(worldMap.mapImageHeight - gameForm.Height); }
+                if (viewportPosX < -(worldMap.MapImageWidth - gameForm.Width)) { viewportPosX = -(worldMap.MapImageWidth - gameForm.Width); }
+                if (viewportPosY < -(worldMap.MapImageHeight - gameForm.Height)) { viewportPosY = -(worldMap.MapImageHeight - gameForm.Height); }
 
                 // Handle player movement with the following
                 //Point potentialMove = new Point(p.X + playerParty.playerSprite.location.X, p.Y + playerParty.playerSprite.location.Y);
@@ -239,13 +239,13 @@ namespace Game
 
             // Drawing the map and the grid underneath it. The grid is only to be used for debugging purposes
             worldMap.DrawMap(device, viewportPosX, viewportPosY);
-            if (worldMap.gridIsDrawn == true)
+            if (worldMap.GridIsDrawn == true)
             {
                 worldMap.ToggleGrid(device, viewportPosX, viewportPosY);    
             }
 
             // Drawing the player
-            playerParty.playerSprite.Draw(device, playerPos.X + viewportPosX, playerPos.Y + viewportPosY);
+            playerParty.PlayerSprite.Draw(device, playerPos.X + viewportPosX, playerPos.Y + viewportPosY);
 
             // Drawing enemies
             //foreach (WorldMapEnemy m in worldMapEnemiesList)
