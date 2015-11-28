@@ -9,6 +9,7 @@ namespace Game.GameObjects.Inventory.ItemSlots
     public enum ItemSlotType
     {
         Weapon,
-        Armor
+        Armor,
+        Common
     }
 }

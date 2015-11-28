@@ -1,4 +1,5 @@
-﻿using Game.GameObjects.Items;
+﻿using Game.GameObjects.Inventory.ItemSlots;
+using Game.GameObjects.Items;
 using Game.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -13,6 +14,7 @@ namespace Game.GameObjects.Inventory
         private IItem item;
         private bool isEmpty;
         private int slotNumber;
+        private ItemSlotType slotType;
 
         public ItemSlot()
         {
@@ -52,6 +54,18 @@ namespace Game.GameObjects.Inventory
             protected set
             {
                 this.slotNumber = value;
+            }
+        }
+
+        public ItemSlotType SlotType
+        {
+            get
+            {
+                return this.slotType;
+            }
+            protected set
+            {
+                this.slotType = value;
             }
         }
 

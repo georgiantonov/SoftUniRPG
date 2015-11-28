@@ -8,6 +8,10 @@ namespace Game.GameObjects.Inventory.ItemSlots
 {
     public class FeetArmorSlot : ArmorSlot
     {
-
+        public FeetArmorSlot()
+            : base()
+        {
+            this.SlotNumber = InventoryValues.InventoryFeetArmorSlotNumber;
+        }
     }
 }

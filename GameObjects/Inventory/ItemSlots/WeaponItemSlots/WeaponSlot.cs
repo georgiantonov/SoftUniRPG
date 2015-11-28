@@ -10,20 +10,10 @@ namespace Game.GameObjects.Inventory.ItemSlots
 {
     public abstract class WeaponSlot : ItemSlot
     {
-        private ItemSlotType slotType;
-
         public WeaponSlot()
             : base()
         {
-            this.slotType = ItemSlotType.Weapon;
-        }
-
-        public ItemSlotType SlotType
-        {
-            get
-            {
-                return this.slotType;
-            }
+            this.SlotType = ItemSlotType.Weapon;
         }
 
         public override void EquipItem(IItem itemToBeEquipped)
