@@ -1,0 +1,4 @@
+C:\Users\user\Documents\Visual Studio 2013\Projects\OOP team project\bin\Debug\Game.exe.config
+C:\Users\user\Documents\Visual Studio 2013\Projects\OOP team project\obj\Debug\Game.csprojResolveAssemblyReference.cache
+C:\Users\user\Documents\Visual Studio 2013\Projects\OOP team project\obj\Debug\Game.TRN.resources
+C:\Users\user\Documents\Visual Studio 2013\Projects\OOP team project\obj\Debug\Game.csproj.GenerateResource.Cache
