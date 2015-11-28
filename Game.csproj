@@ -54,6 +54,7 @@
     <Compile Include="GameObjects\Inventory\ItemSlots\ArmorItemSlots\ArmorSlot.cs" />
     <Compile Include="GameObjects\Inventory\ItemSlots\ArmorItemSlots\ChestArmorSlot.cs" />
     <Compile Include="GameObjects\Inventory\ItemSlots\ArmorItemSlots\FeetArmorSlot.cs" />
+    <Compile Include="GameObjects\Inventory\ItemSlots\ArmorItemSlots\HandArmorSlot.cs" />
     <Compile Include="GameObjects\Inventory\ItemSlots\ArmorItemSlots\HeadArmorSlot.cs" />
     <Compile Include="GameObjects\Inventory\ItemSlots\ItemSlot.cs" />
     <Compile Include="GameObjects\Inventory\ItemSlots\ItemSlotType.cs" />
