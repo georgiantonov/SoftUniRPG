@@ -45,6 +45,26 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GameObjects\GameObject.cs" />
+    <Compile Include="GameObjects\Inventory\Containers\Backpack.cs" />
+    <Compile Include="GameObjects\Inventory\Containers\Container.cs" />
+    <Compile Include="GameObjects\Inventory\EquipManager.cs" />
+    <Compile Include="GameObjects\Inventory\Inventory.cs" />
+    <Compile Include="GameObjects\Inventory\InventoryManager.cs" />
+    <Compile Include="GameObjects\Inventory\InventoryValues.cs" />
+    <Compile Include="GameObjects\Inventory\ItemSlots\ArmorItemSlots\ArmorSlot.cs" />
+    <Compile Include="GameObjects\Inventory\ItemSlots\ArmorItemSlots\ChestArmorSlot.cs" />
+    <Compile Include="GameObjects\Inventory\ItemSlots\ArmorItemSlots\FeetArmorSlot.cs" />
+    <Compile Include="GameObjects\Inventory\ItemSlots\ArmorItemSlots\HeadArmorSlot.cs" />
+    <Compile Include="GameObjects\Inventory\ItemSlots\ItemSlot.cs" />
+    <Compile Include="GameObjects\Inventory\ItemSlots\ItemSlotType.cs" />
+    <Compile Include="GameObjects\Inventory\ItemSlots\WeaponItemSlots\MainHandSlot.cs" />
+    <Compile Include="GameObjects\Inventory\ItemSlots\WeaponItemSlots\OffHandSlot.cs" />
+    <Compile Include="GameObjects\Inventory\ItemSlots\WeaponItemSlots\WeaponSlot.cs" />
+    <Compile Include="Interfaces\IArmorSlot.cs" />
+    <Compile Include="Interfaces\IContainer.cs" />
+    <Compile Include="Interfaces\IInventory.cs" />
+    <Compile Include="Interfaces\IItemSlot.cs" />
+    <Compile Include="Interfaces\IWeaponSlot.cs" />
     <Compile Include="Mechanics\ActiveSkill.cs" />
     <Compile Include="CombatGUI.cs">
       <SubType>Form</SubType>
@@ -89,7 +109,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="GameObjects\Characters\" />
+    <Folder Include="GameObjects\Items\Armor\" />
+    <Folder Include="GameObjects\Items\Consumables\" />
+    <Folder Include="GameObjects\Items\Weapons\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
