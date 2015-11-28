@@ -8,6 +8,10 @@ namespace Game.Interfaces
 {
     public interface IItemSlot
     {
+        IItem item { get; set; }
 
+        bool IsEmpty { get; set; }
+
+        int  SlotNumber { get; set; }
     }
 }

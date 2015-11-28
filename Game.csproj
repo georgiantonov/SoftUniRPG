@@ -60,10 +60,14 @@
     <Compile Include="GameObjects\Inventory\ItemSlots\WeaponItemSlots\MainHandSlot.cs" />
     <Compile Include="GameObjects\Inventory\ItemSlots\WeaponItemSlots\OffHandSlot.cs" />
     <Compile Include="GameObjects\Inventory\ItemSlots\WeaponItemSlots\WeaponSlot.cs" />
+    <Compile Include="GameObjects\Items\Item.cs" />
+    <Compile Include="Interfaces\IArmor.cs" />
     <Compile Include="Interfaces\IArmorSlot.cs" />
     <Compile Include="Interfaces\IContainer.cs" />
     <Compile Include="Interfaces\IInventory.cs" />
+    <Compile Include="Interfaces\IItem.cs" />
     <Compile Include="Interfaces\IItemSlot.cs" />
+    <Compile Include="Interfaces\IWeapon.cs" />
     <Compile Include="Interfaces\IWeaponSlot.cs" />
     <Compile Include="Mechanics\ActiveSkill.cs" />
     <Compile Include="CombatGUI.cs">

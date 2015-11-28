@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Game.GameObjects.Inventory.ItemSlots
+namespace Game.GameObjects.Items
 {
-    public class HeadArmorSlot : ArmorSlot
+    public abstract class Item
     {
 
     }

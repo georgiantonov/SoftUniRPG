@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Game.GameObjects.Inventory.ItemSlots
+namespace Game.Interfaces
 {
-    public class HeadArmorSlot : ArmorSlot
+    public interface IWeapon : IItem
     {
 
     }

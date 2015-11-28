@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Game.GameObjects.Inventory
 {
-    //A static class holding all inventory-related contact values
+    //A static class holding all inventory-related constant values
     public static class InventoryValues
     {
-
+        public const int BackpackBaseSlotNumber = 10;
     }
 }

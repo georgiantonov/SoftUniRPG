@@ -8,5 +8,6 @@ namespace Game.Interfaces
 {
     public interface IArmorSlot : IItemSlot
     {
+        
     }
 }

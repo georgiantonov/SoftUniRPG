@@ -8,5 +8,6 @@ namespace Game.GameObjects.Inventory.ItemSlots
 {
     public class FeetArmorSlot : ArmorSlot
     {
+
     }
 }
