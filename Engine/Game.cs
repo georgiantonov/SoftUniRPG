@@ -12,71 +12,83 @@ namespace Game
 {
     public class Game
     {
-        Form gameForm; // The window
-        //CombatGUI combatGUI; // A separate window that appears when in combat
-        
-        // World Maps
-        WorldMap worldMap;
-        // We'll keep WorldMap objects for our areas in this list
-        List<WorldMap> gameAreasList;
-              
-        PlayerParty playerParty; // The player object
-        Point playerPos = new Point(800, 200);
-
-        // Enemies
-        // WorldMapEnemy enemy;
-        // List<WorldMapEnemy> worldMapEnemiesList;
-        
-        // Drawing
-        PictureBox worldMapCanvas; // We'll be drawing the world map sprites here
-        Graphics device;
-        Image img;
-        
-        // Viewport position coordinates. We'll use these to move the camera around and redraw sprites
-        int viewportPosX = 0;
-        int viewportPosY = 0;
-
-        // The size of each tile, visible when we show the Grid. Tiles should be square
-        int tileSquareSize = 10;
-
-        bool inCombat = false;
+        private Point playerPos;
 
         public Game(Form form)
         {
+            this.playerPos = new Point(800, 200);
+            this.ViewportPosX = 0;
+            this.ViewportPosY = 0;
+            this.TileSquareSize = 10;
+
             // Game Window ('Form') dimensions
-            gameForm = form;
+            this.GameForm = form;
 
             // The Drawing device receives the image
-            img = new Bitmap(gameForm.Width, gameForm.Height);
-            device = Graphics.FromImage(img);
-
-            worldMap = new WorldMap(gameForm, new Bitmap(@"..\..\Assets\Maps\a001.png"), 1380, 820);
-            worldMap.LoadMapTiles("a001", device);
+            this.Img = new Bitmap(this.GameForm.Width, this.GameForm.Height);
+            this.Device = Graphics.FromImage(this.Img);
+            this.WorldMap = new WorldMap(
+                this.GameForm,
+                new Bitmap(@"..\..\Assets\Maps\a001.png"), 1380, 820);
+            this.WorldMap.LoadMapTiles("a001", this.Device);
             
             //combatGUI = new CombatGUI();
             //combatGUI.Visible = true;
-
-            inCombat = false;
+            this.InCombat = false;
 
             // The player being instantiated on the screen
-            Bitmap bmp = new Bitmap(@"..\..\Assets\Sprites\Entities\Player\PlayerSprite.png");
-            playerParty = new PlayerParty(playerPos, bmp, 1); // Change coordinates here to actual starting coordinates
+            this.PlayerParty = new PlayerParty(
+                this.playerPos,
+                new Bitmap(@"..\..\Assets\Sprites\Entities\Player\PlayerSprite.png"),
+                1); // Change coordinates here to actual starting coordinates
             
             // World Map Sprite (Background)
-            worldMapCanvas = new PictureBox();
-            worldMapCanvas.MouseClick += new MouseEventHandler(this.Canvas_MouseClick);
-            worldMapCanvas.Width = gameForm.Width;
-            worldMapCanvas.Height = gameForm.Height;
-            worldMapCanvas.BackColor = Color.Transparent;
-            worldMapCanvas.Parent = gameForm;
+            this.WorldMapCanvas = new PictureBox();
+            this.WorldMapCanvas.MouseClick += new MouseEventHandler(this.Canvas_MouseClick);
+            this.WorldMapCanvas.Width = this.GameForm.Width;
+            this.WorldMapCanvas.Height = this.GameForm.Height;
+            this.WorldMapCanvas.BackColor = Color.Transparent;
+            this.WorldMapCanvas.Parent = this.GameForm;
 
             //worldMapEnemiesList = new List<WorldMapEnemy>();
             //bmp = new Bitmap("PlayerSprite.png");
             //enemy = new WorldMapEnemy(new Point(800, 200), bmp, 0);
 
             // Draw stuff on the screen - the Area Background Image, the Player, NPCs
-            Draw();
+            this.Draw();
         }
+
+        private Form GameForm { get; set; } // The window
+        //CombatGUI combatGUI; // A separate window that appears when in combat
+        // World Maps
+        private WorldMap WorldMap { get; set; }
+
+        // We'll keep WorldMap objects for our areas in this list
+        private List<WorldMap> GameAreasList { get; set; }
+
+        private PlayerParty PlayerParty { get; set; } // The player object
+
+        // Enemies
+        // WorldMapEnemy enemy;
+        // List<WorldMapEnemy> worldMapEnemiesList;
+        // Drawing
+
+        private PictureBox WorldMapCanvas { get; set; } // We'll be drawing the world map sprites here
+
+        private Graphics Device { get; set; }
+
+        private Image Img { get; set; }
+
+        // Viewport position coordinates. We'll use these to move the camera around and redraw sprites
+
+        private int ViewportPosX { get; set; }
+
+        private int ViewportPosY { get; set; }
+        // The size of each tile, visible when we show the Grid. Tiles should be square
+
+        private int TileSquareSize { get; set; }
+
+        private bool InCombat = false;
 
         // We listen for mouse clicks on the Canvas (the area covered by the map's image)
         private void Canvas_MouseClick(object sender, MouseEventArgs e)
@@ -84,9 +96,9 @@ namespace Game
             if (e.Button == MouseButtons.Right)
             {
                 System.Diagnostics.Debug.WriteLine(">> Right-Clicked coordinates:\n>> X: {0} Y: {1}", e.X, e.Y);
-                playerPos.X = e.X;
-                playerPos.Y = e.Y;
-                Draw();
+                this.playerPos.X = e.X;
+                this.playerPos.Y = e.Y;
+                this.Draw();
             }  
         }
 
@@ -129,33 +141,39 @@ namespace Game
         // Event handling -- stuff that happens on mouse clicks, on keys pressed or released, etc.
         public void HandleKeyPress(KeyEventArgs e)
         {
-            if (!inCombat)
+            if (!InCombat)
             {
                 // Panning the camera in 4 directions
-                if (e.KeyCode == Keys.Left)     { viewportPosX += tileSquareSize; }
-                if (e.KeyCode == Keys.Right)    { viewportPosX -= tileSquareSize; }
-                if (e.KeyCode == Keys.Up)       { viewportPosY += tileSquareSize; }
-                if (e.KeyCode == Keys.Down)     { viewportPosY -= tileSquareSize; }
+                if (e.KeyCode == Keys.Left)     { this.ViewportPosX += this.TileSquareSize; }
+                if (e.KeyCode == Keys.Right)    { this.ViewportPosX -= this.TileSquareSize; }
+                if (e.KeyCode == Keys.Up)       { this.ViewportPosY += this.TileSquareSize; }
+                if (e.KeyCode == Keys.Down)     { this.ViewportPosY -= this.TileSquareSize; }
 
                 // Toggling the grid
                 if (e.KeyCode == Keys.G)
                 {
-                    if (worldMap.GridIsDrawn == true)
+                    if (this.WorldMap.GridIsDrawn == true)
                     {
-                        worldMap.GridIsDrawn = false;
+                        this.WorldMap.GridIsDrawn = false;
                     }
                     else
                     {
-                        worldMap.GridIsDrawn = true;
+                        this.WorldMap.GridIsDrawn = true;
                     }
                 }    
 
                 // Disable moving the camera or the player to the left of 0 (X) and above 0 (Y)
-                if (viewportPosX > 0)   { viewportPosX = 0; }
-                if (viewportPosY > 0)   { viewportPosY = 0; }
+                if (this.ViewportPosX > 0)   { this.ViewportPosX = 0; }
+                if (this.ViewportPosY > 0)   { this.ViewportPosY = 0; }
                 // Disable moving the camera or the player off the right edge of the map and off the bottom of the map
-                if (viewportPosX < -(worldMap.MapImageWidth - gameForm.Width)) { viewportPosX = -(worldMap.MapImageWidth - gameForm.Width); }
-                if (viewportPosY < -(worldMap.MapImageHeight - gameForm.Height)) { viewportPosY = -(worldMap.MapImageHeight - gameForm.Height); }
+                if (this.ViewportPosX < - (this.WorldMap.MapImageWidth - this.GameForm.Width))
+                {
+                    this.ViewportPosX = -(this.WorldMap.MapImageWidth - this.GameForm.Width);
+                }
+                if (this.ViewportPosY < - (this.WorldMap.MapImageHeight - this.GameForm.Height))
+                {
+                    this.ViewportPosY = -(this.WorldMap.MapImageHeight - this.GameForm.Height);
+                }
 
                 // Handle player movement with the following
                 //Point potentialMove = new Point(p.X + playerParty.playerSprite.location.X, p.Y + playerParty.playerSprite.location.Y);
@@ -201,7 +219,7 @@ namespace Game
             //    }
             //}
 
-            Draw();
+            this.Draw();
 
             //DetectCollision();
         }
@@ -238,14 +256,17 @@ namespace Game
         {
 
             // Drawing the map and the grid underneath it. The grid is only to be used for debugging purposes
-            worldMap.DrawMap(device, viewportPosX, viewportPosY);
-            if (worldMap.GridIsDrawn == true)
+            this.WorldMap.DrawMap(this.Device, this.ViewportPosX, this.ViewportPosY);
+            if (this.WorldMap.GridIsDrawn == true)
             {
-                worldMap.ToggleGrid(device, viewportPosX, viewportPosY);    
+                this.WorldMap.ToggleGrid(this.Device, this.ViewportPosX, this.ViewportPosY);    
             }
 
             // Drawing the player
-            playerParty.PlayerSprite.Draw(device, playerPos.X + viewportPosX, playerPos.Y + viewportPosY);
+            this.PlayerParty.PlayerSprite.Draw(
+                this.Device, this.playerPos.X +
+                this.ViewportPosX, this.playerPos.Y +
+                this.ViewportPosY);
 
             // Drawing enemies
             //foreach (WorldMapEnemy m in worldMapEnemiesList)
@@ -257,7 +278,7 @@ namespace Game
             //    }
             //}
 
-            worldMapCanvas.Image = img;
+            this.WorldMapCanvas.Image = this.Img;
 
         }
     }
