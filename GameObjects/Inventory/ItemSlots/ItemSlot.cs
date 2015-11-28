@@ -37,6 +37,10 @@ namespace Game.GameObjects.Inventory
             {
                 return this.isEmpty;
             }
+            protected set
+            {
+                this.isEmpty = value;
+            }
         }
 
         public int SlotNumber

@@ -15,7 +15,7 @@ namespace Game.GameObjects.Inventory.ItemSlots
         public WeaponSlot()
             : base()
         {
-
+            this.slotType = ItemSlotType.Weapon;
         }
 
         public ItemSlotType SlotType
@@ -23,10 +23,6 @@ namespace Game.GameObjects.Inventory.ItemSlots
             get
             {
                 return this.slotType;
-            }
-            protected set
-            {
-                this.slotType = value;
             }
         }
 
@@ -37,11 +33,14 @@ namespace Game.GameObjects.Inventory.ItemSlots
                 throw new WrongSlotException(InventoryMessages.WrongSlotMessage);
             }
 
+            this.IsEmpty = false;
+
             throw new NotImplementedException();
         }
 
         public override void UnEquipItem(IItem itemToBeRemoved)
         {
+            this.IsEmpty = true;
             throw new NotImplementedException();
         }
     }

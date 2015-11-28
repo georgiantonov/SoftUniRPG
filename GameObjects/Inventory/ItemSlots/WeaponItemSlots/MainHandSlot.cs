@@ -9,6 +9,10 @@ namespace Game.GameObjects.Inventory.ItemSlots
 {
     public class MainHandSlot : WeaponSlot
     {
-
+        public MainHandSlot()
+            : base()
+        {
+            this.SlotNumber = InventoryValues.InventoryMainHandSlotNumber;
+        }
     }
 }

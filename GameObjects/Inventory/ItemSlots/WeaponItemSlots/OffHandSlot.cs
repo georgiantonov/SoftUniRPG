@@ -8,5 +8,10 @@ namespace Game.GameObjects.Inventory.ItemSlots
 {
     public class OffHandSlot : WeaponSlot
     {
+        public OffHandSlot()
+            : base()
+        {
+            this.SlotNumber = InventoryValues.InventoryOffHandSlotNumber;
+        }
     }
 }
