@@ -10,3 +10,5 @@ C:\Users\Edi\Documents\GitHub\SoftUniRPG\bin\Debug\Game.exe
 C:\Users\Edi\Documents\GitHub\SoftUniRPG\bin\Debug\Game.pdb
 C:\Users\Edi\Documents\GitHub\SoftUniRPG\obj\Debug\Game.exe
 C:\Users\Edi\Documents\GitHub\SoftUniRPG\obj\Debug\Game.pdb
+C:\Users\user\Documents\Visual Studio 2013\Projects\OOP team project\obj\Debug\Game.exe
+C:\Users\user\Documents\Visual Studio 2013\Projects\OOP team project\obj\Debug\Game.pdb
