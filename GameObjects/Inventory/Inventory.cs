@@ -18,6 +18,13 @@ namespace Game.GameObjects.Inventory
         private FeetArmorSlot feetSlot;
         private HandArmorSlot handSlot;
 
+        private Backpack backPack;
+
+        public Inventory()
+        {
+
+        }
+
         public MainHandSlot MainHandSlot
         {
             get
@@ -87,6 +94,18 @@ namespace Game.GameObjects.Inventory
             set
             {
                 this.handSlot = value;
+            }
+        }
+
+        public Backpack BackPack
+        {
+            get
+            {
+                return this.backPack;
+            }
+            set
+            {
+                throw new NotImplementedException();
             }
         }
     }

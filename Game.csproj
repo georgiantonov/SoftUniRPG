@@ -49,6 +49,7 @@
     <Compile Include="GameObjects\Inventory\Containers\Container.cs" />
     <Compile Include="GameObjects\Inventory\EquipManager.cs" />
     <Compile Include="GameObjects\Inventory\Inventory.cs" />
+    <Compile Include="GameObjects\Inventory\InventoryExceptions\InventoryFullException.cs" />
     <Compile Include="GameObjects\Inventory\InventoryExceptions\InventoryMessages.cs" />
     <Compile Include="GameObjects\Inventory\InventoryExceptions\WrongSlotException.cs" />
     <Compile Include="GameObjects\Inventory\InventoryManager.cs" />

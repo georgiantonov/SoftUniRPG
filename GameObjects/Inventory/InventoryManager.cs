@@ -8,5 +8,6 @@ namespace Game.GameObjects.Inventory
 {
     public class InventoryManager
     {
+
     }
 }

@@ -18,7 +18,7 @@ namespace Game.GameObjects.Inventory
 
         protected ItemSlot()
         {
-            this.isEmpty = true;
+            this.IsEmpty = true;
         }
 
         public IItem Item
