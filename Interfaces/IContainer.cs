@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Game.GameObjects.Inventory.ItemSlots;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,9 +9,9 @@ namespace Game.Interfaces
 {
     public interface IContainer
     {
-        int NumberOfSlots { get; set; }
+        int NumberOfSlots { get; }
 
-        IEnumerable<IItem> Items { get; }
+        IEnumerable<CommonSlot> Slots { get; }
 
         void AddItem(IItem itemToBeAdded);
 

@@ -1,4 +1,5 @@
-﻿using Game.GameObjects.Items;
+﻿using Game.GameObjects.Inventory.ItemSlots;
+using Game.GameObjects.Items;
 using Game.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -11,11 +12,11 @@ namespace Game.GameObjects.Inventory.Containers
     public abstract class Container : IContainer
     {
         private int numberOfSlots;
-        protected List<IItem> items;
+        protected List<CommonSlot> slots;
 
         protected Container()
         {
-            this.items = new List<IItem>();
+            this.slots = new List<CommonSlot>();
         }
 
         public int NumberOfSlots
@@ -24,17 +25,17 @@ namespace Game.GameObjects.Inventory.Containers
             {
                 return this.numberOfSlots;
             }
-            set
+            protected set
             {
                 this.numberOfSlots = value;
             }
         }
 
-        public IEnumerable<IItem> Items
+        public IEnumerable<CommonSlot> Slots
         {
             get
             {
-                return this.items;
+                return this.slots;
             }
         }
 

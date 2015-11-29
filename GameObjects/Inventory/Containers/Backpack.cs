@@ -1,5 +1,6 @@
 ﻿using Game.GameObjects.Inventory.Containers;
 using Game.GameObjects.Inventory.InventoryExceptions;
+using Game.GameObjects.Inventory.ItemSlots;
 using Game.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -24,7 +25,8 @@ namespace Game.GameObjects.Inventory
                 throw new BackpackFullException(InventoryMessages.BackpackFullMessage);
             }
 
-            this.items.Add(itemToBeAdded);
+            CommonSlot currentSlot = this.slots.First(x => x.IsEmpty);
+            currentSlot.PutItem(itemToBeAdded);
         }
 
         public override void RemoveItem(IItem itemToBeRemoved)
@@ -34,7 +36,7 @@ namespace Game.GameObjects.Inventory
 
         private bool IsFullBackpack()
         {
-            bool isFull = this.Items.Count() == InventoryValues.BackpackBaseNumberOfSlots;
+            bool isFull = this.slots.Any(x => x.IsEmpty == true);
             return isFull;
         }
     }

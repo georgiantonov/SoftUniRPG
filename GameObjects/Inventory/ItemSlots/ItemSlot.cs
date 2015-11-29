@@ -69,8 +69,8 @@ namespace Game.GameObjects.Inventory
             }
         }
 
-        public abstract void EquipItem(IItem itemToBeEquipped);
+        public abstract void PutItem(IItem itemToBeEquipped);
 
-        public abstract void UnEquipItem(IItem itemToBeRemoved);
+        public abstract void RemoveItem(IItem itemToBeRemoved);
     }
 }

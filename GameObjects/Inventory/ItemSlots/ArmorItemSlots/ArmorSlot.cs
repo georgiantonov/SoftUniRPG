@@ -16,7 +16,7 @@ namespace Game.GameObjects.Inventory.ItemSlots.ArmorItemSlots
             this.SlotType = ItemSlotType.Armor;
         }
 
-        public override void EquipItem(IItem itemToBeEquipped)
+        public override void PutItem(IItem itemToBeEquipped)
         {
             if (!(itemToBeEquipped is IArmor))
             {
@@ -28,7 +28,7 @@ namespace Game.GameObjects.Inventory.ItemSlots.ArmorItemSlots
             throw new NotImplementedException();
         }
 
-        public override void UnEquipItem(IItem itemToBeRemoved)
+        public override void RemoveItem(IItem itemToBeRemoved)
         {
             this.IsEmpty = true;
             throw new NotImplementedException();
