@@ -39,7 +39,7 @@ namespace Game.GameObjects.Inventory
             {
                 return this.isEmpty;
             }
-            set
+            protected set
             {
                 this.isEmpty = value;
             }
@@ -51,7 +51,7 @@ namespace Game.GameObjects.Inventory
             {
                 return this.slotNumber;
             }
-            set
+            protected set
             {
                 this.slotNumber = value;
             }
@@ -63,7 +63,7 @@ namespace Game.GameObjects.Inventory
             {
                 return this.slotType;
             }
-            set
+            protected set
             {
                 this.slotType = value;
             }

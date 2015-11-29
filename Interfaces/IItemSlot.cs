@@ -11,10 +11,10 @@ namespace Game.Interfaces
     {
         IItem Item { get; set; }
 
-        bool IsEmpty { get; set; }
+        bool IsEmpty { get; }
 
-        int  SlotNumber { get; set; }
+        int  SlotNumber { get; }
 
-        ItemSlotType SlotType { get; set; }
+        ItemSlotType SlotType { get; }
     }
 }
