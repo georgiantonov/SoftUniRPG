@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Game.GameObjects.Inventory.ItemSlots
+namespace Game.GameObjects.Inventory.ItemSlots.ArmorItemSlots
 {
     public class HeadArmorSlot : ArmorSlot
     {
