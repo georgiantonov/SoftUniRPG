@@ -11,8 +11,12 @@ namespace Game.GameObjects.Inventory.Containers
     public abstract class Container : IContainer
     {
         private int numberOfSlots;
-        private List<IItem> items;
-        private bool isFull;
+        protected List<IItem> items;
+
+        protected Container()
+        {
+            this.items = new List<IItem>();
+        }
 
         public int NumberOfSlots
         {
@@ -20,7 +24,7 @@ namespace Game.GameObjects.Inventory.Containers
             {
                 return this.numberOfSlots;
             }
-            set
+            protected set
             {
                 this.numberOfSlots = value;
             }
@@ -34,22 +38,8 @@ namespace Game.GameObjects.Inventory.Containers
             }
         }
 
-        public bool IsFull
-        {
-            get
-            {
-                return this.isFull;
-            }
-        }
+        public abstract void AddItem(IItem itemToBeAdded);
 
-        public void AddItem(IItem itemToBeAdded)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void RemoveItem(IItem itemToBeRemoved)
-        {
-            throw new NotImplementedException();
-        }
+        public abstract void RemoveItem(IItem itemToBeRemoved);
     }
 }

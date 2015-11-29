@@ -11,19 +11,10 @@ namespace Game.GameObjects.Inventory
 {
     public class Backpack : Container
     {
-        private List<IItem> items;
-
         public Backpack()
+            : base()
         {
-            this.items = new List<IItem>();
-        }
-
-        public IEnumerable<IItem> Items
-        {
-            get
-            {
-                return this.items;
-            }
+            this.NumberOfSlots = InventoryValues.BackpackBaseNumberOfSlots;
         }
 
         public void AddItem(IItem itemToBeAdded)
