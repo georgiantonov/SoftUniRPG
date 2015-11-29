@@ -66,5 +66,13 @@ namespace Game.GameObjects.Inventory.Containers
         {
             this.slots.Add(new CommonSlot());
         }
+
+        public void ListItems()
+        {
+            foreach (IItem currentItem in this.Slots)
+            {
+                Console.WriteLine(currentItem.ToString());
+            }
+        }
     }
 }

@@ -22,7 +22,7 @@ namespace Game.GameObjects.Inventory
 
         public Inventory()
         {
-
+            this.InitializeInventory();
         }
 
         public MainHandSlot MainHandSlot
@@ -107,6 +107,17 @@ namespace Game.GameObjects.Inventory
             {
                 this.backPack = value;
             }
+        }
+
+        private void InitializeInventory()
+        {
+            this.BackPack = new Backpack();
+            this.MainHandSlot = new MainHandSlot();
+            this.OffHandSlot = new OffHandSlot();
+            this.ChestSlot = new ChestArmorSlot();
+            this.HeadSlot = new HeadArmorSlot();
+            this.FeetSlot = new FeetArmorSlot();
+            this.HandSlot = new HandArmorSlot();
         }
     }
 }

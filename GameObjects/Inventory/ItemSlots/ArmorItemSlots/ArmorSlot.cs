@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Game.GameObjects.Inventory.ItemSlots.ArmorItemSlots
 {
-    public class ArmorSlot : ItemSlot
+    public abstract class ArmorSlot : ItemSlot
     {
         protected ArmorSlot()
             : base()
