@@ -24,7 +24,7 @@ namespace Game.GameObjects.Inventory.Containers
             {
                 return this.numberOfSlots;
             }
-            protected set
+            set
             {
                 this.numberOfSlots = value;
             }

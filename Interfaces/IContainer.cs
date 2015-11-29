@@ -12,8 +12,6 @@ namespace Game.Interfaces
 
         IEnumerable<IItem> Items { get; }
 
-        bool IsFull { get; }
-
         void AddItem(IItem itemToBeAdded);
 
         void RemoveItem(IItem itemToBeRemoved);

@@ -17,7 +17,7 @@ namespace Game.GameObjects.Inventory
             this.NumberOfSlots = InventoryValues.BackpackBaseNumberOfSlots;
         }
 
-        public void AddItem(IItem itemToBeAdded)
+        public override void AddItem(IItem itemToBeAdded)
         {
             if (this.IsFullBackpack())
             {
@@ -27,7 +27,7 @@ namespace Game.GameObjects.Inventory
             this.items.Add(itemToBeAdded);
         }
 
-        public void RemoveItem(IItem itemToBeRemoved)
+        public override void RemoveItem(IItem itemToBeRemoved)
         {
             throw new NotImplementedException();
         }
