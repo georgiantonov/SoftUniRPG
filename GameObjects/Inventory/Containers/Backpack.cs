@@ -16,28 +16,15 @@ namespace Game.GameObjects.Inventory
             : base()
         {
             this.NumberOfSlots = InventoryValues.BackpackBaseNumberOfSlots;
+            this.InitializeSlots();
         }
 
-        public override void AddItem(IItem itemToBeAdded)
+        private override void InitializeSlots()
         {
-            if (this.IsFullBackpack())
+            for (int i = 0; i < this.NumberOfSlots; i++)
             {
-                throw new BackpackFullException(InventoryMessages.BackpackFullMessage);
+                this.AddSlot();
             }
-
-            CommonSlot currentSlot = this.slots.First(x => x.IsEmpty);
-            currentSlot.PutItem(itemToBeAdded);
-        }
-
-        public override void RemoveItem(IItem itemToBeRemoved)
-        {
-            throw new NotImplementedException();
-        }
-
-        private bool IsFullBackpack()
-        {
-            bool isFull = this.slots.Any(x => x.IsEmpty == true);
-            return isFull;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Game.GameObjects.Inventory.ItemSlots;
+﻿using Game.GameObjects.Inventory.InventoryExceptions;
+using Game.GameObjects.Inventory.ItemSlots;
 using Game.GameObjects.Items;
 using Game.Interfaces;
 using System;
@@ -12,7 +13,7 @@ namespace Game.GameObjects.Inventory.Containers
     public abstract class Container : IContainer
     {
         private int numberOfSlots;
-        protected List<CommonSlot> slots;
+        private List<CommonSlot> slots;
 
         protected Container()
         {
@@ -39,8 +40,33 @@ namespace Game.GameObjects.Inventory.Containers
             }
         }
 
-        public abstract void AddItem(IItem itemToBeAdded);
+        public void AddItem(IItem itemToBeAdded)
+        {
+            if (this.IsFull())
+            {
+                throw new BackpackFullException(InventoryMessages.BackpackFullMessage);
+            }
 
-        public abstract void RemoveItem(IItem itemToBeRemoved);
+            CommonSlot currentSlot = this.slots.First(x => x.IsEmpty);
+            currentSlot.PutItem(itemToBeAdded);
+        }
+
+        public void RemoveItem(IItem itemToBeRemoved)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool IsFull()
+        {
+            bool isFull = this.slots.Any(x => x.IsEmpty == true);
+            return isFull;
+        }
+
+        protected void AddSlot()
+        {
+            this.slots.Add(new CommonSlot());
+        }
+
+        private abstract void InitializeSlots();
     }
 }

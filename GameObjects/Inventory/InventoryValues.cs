@@ -17,5 +17,6 @@ namespace Game.GameObjects.Inventory
         public const int InventoryHeadArmorSlotNumber = 4;
         public const int InventoryFeetArmorSlotNumber = 5;
         public const int InventoryHandArmorSlotNumber = 6;
+        public const int InventoryCommonSlotNumber = 0;
     }
 }

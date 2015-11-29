@@ -12,6 +12,7 @@ namespace Game.GameObjects.Inventory.ItemSlots
             : base()
         {
             this.SlotType = ItemSlotType.Common;
+            this.SlotNumber = InventoryValues.InventoryCommonSlotNumber;
         }
 
         public override void PutItem(Interfaces.IItem itemToBeEquipped)
