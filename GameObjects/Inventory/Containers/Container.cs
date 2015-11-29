@@ -66,7 +66,5 @@ namespace Game.GameObjects.Inventory.Containers
         {
             this.slots.Add(new CommonSlot());
         }
-
-        private abstract void InitializeSlots();
     }
 }

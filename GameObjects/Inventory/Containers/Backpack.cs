@@ -19,7 +19,7 @@ namespace Game.GameObjects.Inventory
             this.InitializeSlots();
         }
 
-        private override void InitializeSlots()
+        private void InitializeSlots()
         {
             for (int i = 0; i < this.NumberOfSlots; i++)
             {
