@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Game.GameObjects.Inventory.InventoryExceptions
 {
-    public class InventoryFullException : Exception
+    public class BackpackFullException : Exception
     {
-        public InventoryFullException(string message)
+        public BackpackFullException(string message)
             : base(message)
         {
         }

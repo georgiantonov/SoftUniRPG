@@ -105,7 +105,7 @@ namespace Game.GameObjects.Inventory
             }
             set
             {
-                throw new NotImplementedException();
+                this.backPack = value;
             }
         }
     }

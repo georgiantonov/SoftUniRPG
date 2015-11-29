@@ -10,7 +10,7 @@ namespace Game.GameObjects.Inventory.ItemSlots.WeaponItemSlots
 {
     public abstract class WeaponSlot : ItemSlot
     {
-        public WeaponSlot()
+        protected WeaponSlot()
             : base()
         {
             this.SlotType = ItemSlotType.Weapon;

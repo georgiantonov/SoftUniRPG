@@ -10,7 +10,7 @@ namespace Game.GameObjects.Inventory.ItemSlots.ArmorItemSlots
 {
     public class ArmorSlot : ItemSlot
     {
-        public ArmorSlot()
+        protected ArmorSlot()
             : base()
         {
             this.SlotType = ItemSlotType.Armor;

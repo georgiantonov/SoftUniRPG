@@ -8,6 +8,6 @@ namespace Game.GameObjects.Items
 {
     public abstract class Item
     {
-
+        
     }
 }

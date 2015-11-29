@@ -8,6 +8,11 @@ namespace Game.GameObjects.Inventory
 {
     public class InventoryManager
     {
+        private Inventory inventory;
 
+        public InventoryManager()
+        {
+            this.inventory = new Inventory();
+        }
     }
 }
