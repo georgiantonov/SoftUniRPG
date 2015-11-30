@@ -29,6 +29,11 @@ namespace Game.GameObjects.Inventory
             }
         }
 
+        public void RemoveFromInventory(IItem itemToBeRemoved)
+        {
+            throw new NotImplementedException();
+        }
+
         public void ListAllWeaponsInBackpack()
         {
             throw new NotImplementedException();
@@ -40,6 +45,16 @@ namespace Game.GameObjects.Inventory
         }
 
         public void ListAllConsumables()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ListAllItemsInBackpack()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ListEquipment()
         {
             throw new NotImplementedException();
         }
