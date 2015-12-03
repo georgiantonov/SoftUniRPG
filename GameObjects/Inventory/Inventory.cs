@@ -31,7 +31,7 @@ namespace Game.GameObjects.Inventory
             {
                 return this.mainHandSlot;
             }
-            set
+            private set
             {
                 this.mainHandSlot = value;
             }
@@ -43,7 +43,7 @@ namespace Game.GameObjects.Inventory
             {
                 return this.offHandSlot;
             }
-            set
+            private set
             {
                 this.offHandSlot = value;
             }
@@ -55,7 +55,7 @@ namespace Game.GameObjects.Inventory
             {
                 return this.chestSlot;
             }
-            set
+            private set
             {
                 this.chestSlot = value;
             }
@@ -67,7 +67,7 @@ namespace Game.GameObjects.Inventory
             {
                 return this.headSlot;
             }
-            set
+            private set
             {
                 this.headSlot = value;
             }
@@ -79,7 +79,7 @@ namespace Game.GameObjects.Inventory
             {
                 return this.feetSlot;
             }
-            set
+            private set
             {
                 this.feetSlot = value;
             }
@@ -91,7 +91,7 @@ namespace Game.GameObjects.Inventory
             {
                 return this.handSlot;
             }
-            set
+            private set
             {
                 this.handSlot = value;
             }
@@ -103,7 +103,7 @@ namespace Game.GameObjects.Inventory
             {
                 return this.backPack;
             }
-            set
+            private set
             {
                 this.backPack = value;
             }

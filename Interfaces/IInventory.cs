@@ -11,18 +11,18 @@ namespace Game.Interfaces
 {
     public interface IInventory
     {
-        MainHandSlot MainHandSlot { get; set; }
+        MainHandSlot MainHandSlot { get; }
 
-        OffHandSlot OffHandSlot { get; set; }
+        OffHandSlot OffHandSlot { get; }
 
-        ChestArmorSlot ChestSlot { get; set; }
+        ChestArmorSlot ChestSlot { get; }
 
-        HeadArmorSlot HeadSlot { get; set; }
+        HeadArmorSlot HeadSlot { get; }
 
-        FeetArmorSlot FeetSlot { get; set; }
+        FeetArmorSlot FeetSlot { get;}
 
-        HandArmorSlot HandSlot { get; set; }
+        HandArmorSlot HandSlot { get; }
 
-        Backpack BackPack { get; set; }
+        Backpack BackPack { get; }
     }
 }
