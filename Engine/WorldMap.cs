@@ -24,8 +24,10 @@ namespace Game
         private Color nonWalkableColor = Color.FromArgb(0, 0, 0);
         private Pen pen = new Pen(Color.Green);
         private bool gridIsDrawn;
+        private Image gridCalculatedImage;
+        private Graphics gridGraphicsDevice;
 
-        public WorldMap(Form form, Bitmap mapImage, int mapImageWidth, int mapImageHeight)
+        public WorldMap(Bitmap mapImage, int mapImageWidth, int mapImageHeight)
         {
             this.MapImage = mapImage;
             this.MapTiles = new List<Tile>();
@@ -35,6 +37,19 @@ namespace Game
             this.WalkableColor = Color.FromArgb(255, 255, 255);
             this.NonWalkableColor = Color.FromArgb(0, 0, 0);
             this.Pen = new Pen(Color.Green);
+        }
+
+        public Graphics GridGraphicsDevice
+        {
+            get
+            {
+                return this.gridGraphicsDevice;
+            }
+
+            set
+            {
+                this.gridGraphicsDevice = value;
+            }
         }
 
         public Image MapImage
@@ -47,6 +62,19 @@ namespace Game
             set
             {
                 this.mapImage = value;
+            }
+        }
+
+        public Image GridCalculatedImage
+        {
+            get
+            {
+                return this.gridCalculatedImage;
+            }
+
+            set
+            {
+                this.gridCalculatedImage = value;
             }
         }
 
@@ -234,6 +262,16 @@ namespace Game
 
                 y++;
             }
+
+            // Once the tilelist is full, preform an initial drawing of the grid
+            GridCalculatedImage = new Bitmap(this.MapImageWidth, this.MapImageHeight);
+            GridGraphicsDevice = Graphics.FromImage(this.GridCalculatedImage);
+
+            foreach (Tile tile in MapTiles)
+            {
+                pen.Color = tile.color;
+                GridGraphicsDevice.DrawRectangle(pen, 0 + tile.loc.X, 0 + tile.loc.Y, 10, 10);
+            }
         }
 
         public bool GetWalkableAt(Point loc)
@@ -252,43 +290,48 @@ namespace Game
         }
 
         // For now we don't have levels. There is only one map, and we've set the mapImage and mapImageOrigin properties statically
-        public void DrawMap(Graphics device, int x, int y)
+        public void DrawMap(Graphics FrameGraphicsDevice, int x, int y)
         {
             mapImageOrigin.X = x;
             mapImageOrigin.Y = y;
-            device.DrawImage(MapImage, MapImageOrigin);
+            FrameGraphicsDevice.DrawImage(MapImage, MapImageOrigin);
+
+            if (gridIsDrawn == true)
+            {
+                FrameGraphicsDevice.DrawImage(gridCalculatedImage, mapImageOrigin);
+            }
         }
 
         // The following three methods show and hide a visible grid of the map tiles, which serves for debugging purposes
-        private void DrawGrid(Graphics device, int x, int y)
-        {
-            System.Diagnostics.Debug.WriteLine(">> Drawing grid...");
-            foreach (Tile tile in MapTiles)
-            {
-                Pen.Color = tile.color;
-                device.DrawRectangle(Pen, tile.loc.X + MapImageOrigin.X, tile.loc.Y + MapImageOrigin.Y, 10, 10);
-            }
-        }
+        //private void DrawGrid(Graphics device, int x, int y)
+        //{
+        //    System.Diagnostics.Debug.WriteLine(">> Drawing grid...");
+        //    foreach (Tile tile in MapTiles)
+        //    {
+        //        Pen.Color = tile.color;
+        //        device.DrawRectangle(Pen, tile.loc.X + MapImageOrigin.X, tile.loc.Y + MapImageOrigin.Y, 10, 10);
+        //    }
+        //}
 
-        private void HideGrid(Graphics device)
-        {
-            System.Diagnostics.Debug.WriteLine(">> Clearing grid...");
-            device.Clear(Color.Transparent);
-        }
+        //private void HideGrid(Graphics device)
+        //{
+        //    System.Diagnostics.Debug.WriteLine(">> Clearing grid...");
+        //    device.Clear(Color.Transparent);
+        //}
 
-        public void ToggleGrid(Graphics device, int viewportPosX, int viewportPosY)
-        {
-            System.Diagnostics.Debug.WriteLine(">> Grid toggle method called, gridIsDrawn: " + GridIsDrawn);
-            if (GridIsDrawn == true)
-            {
-                this.DrawGrid(device, viewportPosX, viewportPosY);
-                device.DrawImage(GridImage, MapImageOrigin);
-            }
-            else
-            {
-                this.HideGrid(device);
-                device.DrawImage(MapImage, MapImageOrigin);
-            }
-        }
+        //public void ToggleGrid(Graphics device, int viewportPosX, int viewportPosY)
+        //{
+        //    System.Diagnostics.Debug.WriteLine(">> Grid toggle method called, gridIsDrawn: " + GridIsDrawn);
+        //    if (GridIsDrawn == true)
+        //    {
+        //        this.DrawGrid(device, viewportPosX, viewportPosY);
+        //        device.DrawImage(GridImage, MapImageOrigin);
+        //    }
+        //    else
+        //    {
+        //        this.HideGrid(device);
+        //        device.DrawImage(MapImage, MapImageOrigin);
+        //    }
+        //}
     }
 }
