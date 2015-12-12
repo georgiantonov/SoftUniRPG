@@ -44,6 +44,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Engine\Commands\Command.cs" />
+    <Compile Include="Engine\Commands\CommandFactory.cs" />
+    <Compile Include="Engine\Commands\CreateCharacterCommand.cs" />
+    <Compile Include="Engine\Commands\CreateItemCommand.cs" />
     <Compile Include="Engine\GEngine.cs" />
     <Compile Include="GameObjects\GameObject.cs" />
     <Compile Include="GameObjects\Inventory\Containers\Backpack.cs" />
@@ -68,7 +72,9 @@
     <Compile Include="GameObjects\Inventory\ItemSlots\WeaponItemSlots\WeaponSlot.cs" />
     <Compile Include="GameObjects\Items\Item.cs" />
     <Compile Include="Interfaces\IArmor.cs" />
+    <Compile Include="Interfaces\ICommand.cs" />
     <Compile Include="Interfaces\IContainer.cs" />
+    <Compile Include="Interfaces\IGEngine.cs" />
     <Compile Include="Interfaces\IInventory.cs" />
     <Compile Include="Interfaces\IItem.cs" />
     <Compile Include="Interfaces\IItemSlot.cs" />
